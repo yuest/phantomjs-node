@@ -13,7 +13,6 @@
 
   startPhantomProcess = function(port, args, binaryPath) {
     var ps;
-    console.log("binary path " + binaryPath);
     ps = child.spawn(binaryPath, args.concat([__dirname + '/shim.js', port]));
     ps.stdout.on('data', function(data) {
       return console.log("phantom stdout: " + data);

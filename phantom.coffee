@@ -4,7 +4,6 @@ child   = require 'child_process'
 
 phanta = []
 startPhantomProcess = (port, args, binaryPath) ->
-  console.log "binary path " + binaryPath
   ps = child.spawn binaryPath, args.concat [__dirname+'/shim.js', port]
 
   ps.stdout.on 'data', (data) -> console.log "phantom stdout: #{data}"
