@@ -51,6 +51,9 @@ pageWrap = (page) -> mkwrap page,
   injectJs: (js, cb=->) -> cb page.injectJs js
   evaluate: (fn, cb=->) -> cb page.evaluate fn
   render: (file, cb=->) -> page.render file; cb()
+  renderBase64: (format='png', cb=->) ->
+    cb = (->) if typeof cb isnt 'function'
+    cb page.renderBase64 format
 
 _phantom = mkwrap phantom,
   ['exit'],
